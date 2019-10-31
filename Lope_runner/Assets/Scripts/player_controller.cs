@@ -10,6 +10,7 @@ public class player_controller : MonoBehaviour
     public float gravityModifier; // to modify the gravity, to earth one to a lunar one!
 
     public bool IsOnGround = true; //is on the ground
+    public bool isGameOver = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,7 @@ public class player_controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround)  // if you press space and is touching the ground
+        if (Input.GetKeyDown(KeyCode.Space) && IsOnGround && !isGameOver)  // if you press space and is touching the ground
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //Apply a impulse force, to make it up
             IsOnGround = false; // no longer touches the ground
@@ -31,6 +32,18 @@ public class player_controller : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        IsOnGround = true;
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            IsOnGround = true;
+        }
+
+        else if (collision.gameObject.CompareTag("Obstacle"))
+        {
+            isGameOver = true;
+            Debug.Log("Game Over you noob");
+
+        }
     }
 }
+
+    
