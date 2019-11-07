@@ -11,13 +11,16 @@ public class player_controller : MonoBehaviour
 
     public bool IsOnGround = true; //is on the ground
     public bool isGameOver = false;
+
+    private Animator playerAnim;
     // Start is called before the first frame update
     void Start()
     {
         playerRB = GetComponent<Rigidbody>(); //Get the Rigidbody component
-        playerRB.AddForce(Vector3.up * 1000); //Adding a physics force up
 
         Physics.gravity *= gravityModifier; //Modify the default Unity gravity to your gravity!
+
+        playerAnim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,6 +30,7 @@ public class player_controller : MonoBehaviour
         {
             playerRB.AddForce(Vector3.up * jumpForce, ForceMode.Impulse); //Apply a impulse force, to make it up
             IsOnGround = false; // no longer touches the ground
+            playerAnim.SetTrigger("Jump_trig");
         }
     }
 

@@ -521,6 +521,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: f147a01ef442b2345a3546109476c690, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f147a01ef442b2345a3546109476c690, type: 3}
 --- !u!1 &2014156678 stripped
@@ -541,8 +545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3102a642b49e449b51ec4ee134dd3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 25
-  gravityModifier: 7
+  jumpForce: 15
+  gravityModifier: 4
   IsOnGround: 1
   isGameOver: 0
 --- !u!54 &2014156680
@@ -559,7 +563,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 0
 --- !u!65 &2014156681
 BoxCollider:
