@@ -7,10 +7,14 @@ public class MoveLeft : MonoBehaviour
     public float speed;
     private player_controller playerControllerScript;
     public float leftBound = -15;
+
+    SpawnManager spawnM;
+
     // Start is called before the first frame update
     void Start()
     {
         playerControllerScript = GameObject.Find("Player").GetComponent<player_controller>();
+        spawnM = GameObject.Find("Spawn_manager").GetComponent<SpawnManager>();
     }
 
     // Update is called once per frame
@@ -22,6 +26,7 @@ public class MoveLeft : MonoBehaviour
         }
         if (transform.position.x <leftBound && gameObject.CompareTag("Obstacle"))
         {
+            spawnM.obstaclesDestroyedCount++; //the same as obstacleDestroyedCount +1
             Destroy(gameObject);
         }
     }

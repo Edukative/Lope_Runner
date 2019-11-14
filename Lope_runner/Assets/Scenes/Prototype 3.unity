@@ -452,6 +452,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: b186f9485a0828b468f98fe846ae1a68, type: 3}
   - {fileID: 100000, guid: 3bd8a450fcb589542a7843ea7bda2ee6, type: 3}
   obstacleIndex: 1
+  obstaclesDestroyedCount: 0
 --- !u!4 &1059848871
 Transform:
   m_ObjectHideFlags: 0
@@ -545,8 +546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef3102a642b49e449b51ec4ee134dd3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
-  gravityModifier: 4
+  jumpForce: 40
+  gravityModifier: 15
   IsOnGround: 1
   isGameOver: 0
 --- !u!54 &2014156680
