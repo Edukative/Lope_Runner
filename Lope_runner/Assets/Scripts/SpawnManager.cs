@@ -35,10 +35,10 @@ public class SpawnManager : MonoBehaviour
             GameObject obstacle = Instantiate(obstacles[obstacleIndex], spawnPos, 
                 obstacles[obstacleIndex].transform.rotation);// spawn obstacle
             MoveLeft obsScript = obstacle.GetComponent<MoveLeft>(); //retrieve script from spawned obstacles
-            if(obstacleIndex == 3 || obstacleIndex == 4)
-            {
-                Move_Forward obshumanScript = obstacle.GetComponent<Move_Forward>();
-            }
+            //if(obstacleIndex == 3 || obstacleIndex == 4)
+            //{
+               // Move_Forward obshumanScript = obstacle.GetComponent<Move_Forward>();
+            //}
             obsScript.speed = obsScript.speed + (float)obstaclesDestroyedCount; // transform  int to float
         } 
     }
