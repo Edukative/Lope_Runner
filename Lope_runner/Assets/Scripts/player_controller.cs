@@ -20,6 +20,13 @@ public class player_controller : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip crashSound;
 
+    public int hp;
+
+    private SpriteRenderer hp1;
+    private SpriteRenderer hp2;
+    private SpriteRenderer hp3;
+
+
     private Animator playerAnim;
     // Start is called before the first frame update
     void Start()
@@ -30,6 +37,11 @@ public class player_controller : MonoBehaviour
 
         playerAnim = GetComponent<Animator>();
         playerAudio = GetComponent<AudioSource>();
+
+        GameObject canvas = GameObject.Find("Canvas");
+        hp1 = canvas.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        hp2 = canvas.transform.GetChild(1).GetComponent<SpriteRenderer>();
+        hp3 = canvas.transform.GetChild(2).GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -51,6 +63,36 @@ public class player_controller : MonoBehaviour
             
         }
     }
+    void LoseHp()
+    {
+        if (hp>= 0)
+        {
+            hp--;
+            switch (hp)
+            {
+                case 2: hp3.gameObject.SetActive(false);
+                    break;
+                case 1: hp2.gameObject.SetActive(false);
+                    break;
+                case 0: hp1.gameObject.SetActive(false);
+                    isGameOver = true;
+                    // Animations
+                    playerAnim.SetBool("Death_b", true);
+                    playerAnim.SetInteger("DeathType_int", 1);
+                    // particles
+                    explosion.Play();
+                    dirt.Stop();
+                    //sounds
+                    playerAudio.PlayOneShot(crashSound);
+
+                    break;
+                default: hp3.gameObject.SetActive(true);
+                    hp2.gameObject.SetActive(true);
+                    hp1.gameObject.SetActive(true);
+                    break;
+            }
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -62,13 +104,11 @@ public class player_controller : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
-            explosion.Play();
-            isGameOver = true;
-            Debug.Log("Game Over you noob");
-            playerAnim.SetBool("Death_b", true);
-            playerAnim.SetInteger("DeathType_int", 1);
-            playerAudio.PlayOneShot(crashSound);
+            LoseHp();
+            Destroy(collision.gameObject); 
         }
+           
+        
     }
 }
 
