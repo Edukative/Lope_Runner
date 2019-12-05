@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 9500000}
   - component: {fileID: 3232054837943861543}
-  - component: {fileID: 3165527692740130974}
   - component: {fileID: 7189680848905494807}
+  - component: {fileID: -2430910293439362368}
   m_Layer: 0
   m_Name: SimplePeople_BusinessMan_White
   m_TagString: Obstacle
@@ -79,20 +79,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.024355, y: 2.8023696, z: 1}
   m_Center: {x: 0.0030899644, y: 1.389591, z: -1.1600103e-17}
---- !u!114 &3165527692740130974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4bde15ce4e797d44eafc4bf78d418a86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  leftBound: -15
 --- !u!54 &7189680848905494807
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -109,6 +95,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-2430910293439362368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bde15ce4e797d44eafc4bf78d418a86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  leftBound: -15
 --- !u!1 &100004
 GameObject:
   m_ObjectHideFlags: 0

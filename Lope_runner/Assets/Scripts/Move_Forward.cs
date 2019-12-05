@@ -24,7 +24,7 @@ public class Move_Forward : MonoBehaviour
          
         if (!playerControllerScript.isGameOver)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
         }
         if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
         {

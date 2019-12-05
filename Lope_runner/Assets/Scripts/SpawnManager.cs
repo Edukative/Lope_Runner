@@ -6,6 +6,7 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] obstacles;
     private Vector3 spawnPos = new Vector3(25, 0, 0); // the position it will spawn
+    private Vector3 spawnPosHumans = new Vector3(25, 0, 0);
     public int obstacleIndex;
 
     private float startDelay = 2;
@@ -32,16 +33,19 @@ public class SpawnManager : MonoBehaviour
        if (!playerControllerScript.isGameOver)
         {
             int obstacleIndex = Random.Range(0, obstacles.Length);
-            GameObject obstacle = Instantiate(obstacles[obstacleIndex], spawnPos, 
-                obstacles[obstacleIndex].transform.rotation);// spawn obstacle
+           
             if(obstacleIndex == 3 || obstacleIndex == 4)
             {
+                GameObject obstacle = Instantiate(obstacles[obstacleIndex], spawnPosHumans,
+               obstacles[obstacleIndex].transform.rotation);// spawn obstacle
                 Move_Forward obshumanScript = obstacle.GetComponent<Move_Forward>();
                 obshumanScript.speed = obshumanScript.speed + (float)obstaclesDestroyedCount; // transform  int to float
 
             }
             else
             {
+                GameObject obstacle = Instantiate(obstacles[obstacleIndex], spawnPos,
+               obstacles[obstacleIndex].transform.rotation);// spawn obstacle
                 MoveLeft obsScript = obstacle.GetComponent<MoveLeft>(); //retrieve script from spawned obstacles
                 obsScript.speed = obsScript.speed + (float)obstaclesDestroyedCount; // transform  int to float
             }
