@@ -27,7 +27,7 @@ public class player_controller : MonoBehaviour
     private SpriteRenderer hp3;
 
 
-    private SpriteRenderer Enemy1;
+    //private SpriteRenderer Enemy1;
 
 
     private Animator playerAnim;
@@ -46,7 +46,7 @@ public class player_controller : MonoBehaviour
         hp2 = canvas.transform.GetChild(1).GetComponent<SpriteRenderer>();
         hp3 = canvas.transform.GetChild(2).GetComponent<SpriteRenderer>();
 
-        Enemy1 = canvas.transform.GetComponent<SpriteRenderer>();
+        //Enemy1 = canvas.transform.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
