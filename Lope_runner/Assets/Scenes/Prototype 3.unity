@@ -400,7 +400,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 66ce0fda7508547d2be6b20eac53f119, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 17881b719d84f46169e88d04d594eb75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -946,6 +946,8 @@ MonoBehaviour:
   - {fileID: 100000, guid: 3bd8a450fcb589542a7843ea7bda2ee6, type: 3}
   obstacleIndex: 1
   obstaclesDestroyedCount: 0
+  repeatRateMin: 1
+  repeatRateMax: 5
 --- !u!4 &1059848871
 Transform:
   m_ObjectHideFlags: 0
@@ -1391,7 +1393,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 5a848688ccae726479dd586badfa9a55, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1558,6 +1560,7 @@ MonoBehaviour:
   gravityModifier: 15
   IsOnGround: 1
   isGameOver: 0
+  restart: 0
   explosion: {fileID: 943789106}
   dirt: {fileID: 762445374}
   jumpSound: {fileID: 8300000, guid: 0f7d0b7c3397f4dac91f20e8a77d2d57, type: 3}

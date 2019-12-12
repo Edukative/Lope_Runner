@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class player_controller : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class player_controller : MonoBehaviour
 
     public bool IsOnGround = true; //is on the ground
     public bool isGameOver = false;
+    public bool restart = false;
 
     public ParticleSystem explosion;
     public ParticleSystem dirt;
@@ -64,8 +66,15 @@ public class player_controller : MonoBehaviour
             dirt.Stop();
 
             //audio
-            playerAudio.PlayOneShot(jumpSound);
-            
+            playerAudio.PlayOneShot(jumpSound);            
+        }
+        else if (isGameOver && Input.GetKeyDown(KeyCode.Space))
+        {        
+            isGameOver = false;
+            hp = 4;
+            LoseHp();
+            playerAnim.SetBool("Death_b", false);
+            restart = true;
         }
     }
     void LoseHp()
